@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:Custom_balanceV3"
+             mc:Ignorable="d"
+             x:Class="Custom_balanceV3.BalanceItem">
+    <ContentView.Content>
+        <Frame x:Name="frame"
+               
+               BackgroundColor="#33334d"
+               CornerRadius="10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="TapFrame"
+                    NumberOfTapsRequired="1"/>
+            </Frame.GestureRecognizers>
+            <local:StateContainerMode State ="{Binding State}">
+                <local:StateConditionMode State="Expanded">
+                    <StackLayout>
+                        <Grid Grid.ColumnSpan="2"
+                              Grid.RowSpan="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0"
+                                    Grid.Row="0"/>
+                            <Button Grid.Column="1"
+                                    Grid.Row="0"
+                                    BackgroundColor="#33334d"
+                                    BorderColor="#66cc99"
+                                    BorderWidth="2"
+                                    CornerRadius="10"
+                                    Margin="9"
+                                    HorizontalOptions="End"
+                                    WidthRequest="125"/>
+                            <Label Text ="BALANCE:"
+                                    TextColor="Gray"
+                                    Grid.Column="0"
+                                    Grid.Row="1"/>
+                            <Label 
+                                    x:Name="labelBalanceC"
+                                    Text ="$1819.21"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="2"/>
+                            <Label Text ="P&amp;L:"
+                                    TextColor="#66cc99"
+                                    Grid.Column="0"
+                                    Grid.Row="3"/>
+                            <Label x:Name="labelPLC"
+                                    Text ="$1819.21"
+                                    
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="4"/>
+                            <Label Text ="FREE BALANCE:"
+                                    TextColor="Gray"
+                                    Grid.Column="0"
+                                    Grid.Row="5"/>
+                            <Label 
+                                    x:Name="labelFreeBalance"
+                                    Text ="$1819.21"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="6"/>
+                            <Label Text ="USED MARGIN:"
+                                    TextColor="Gray"
+                                    Grid.Column="0"
+                                    Grid.Row="7"/>
+                            <Label 
+                                    x:Name="labelUsedMargin"
+                                    Text ="$1819.21"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="8"/>
+                            <Label Text ="EQUITY:"
+                                    TextColor="Gray"
+                                    Grid.Column="0"
+                                    Grid.Row="9"/>
+                            <Label 
+                                    x:Name="labelEquity"
+                                    Text ="$1819.21"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="10"/>
+                        </Grid>
+                    </StackLayout>
+                </local:StateConditionMode>
+
+                <local:StateConditionMode State="Collapsed">
+                    <StackLayout>
+                        <Grid Grid.ColumnSpan="2"
+                               Grid.RowSpan="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0"
+                                    Grid.Row="0"/>
+                            <Button Grid.Column="1"
+                                    Grid.Row="0"
+                                    BackgroundColor="#33334d"
+                                    BorderColor="#66cc99"
+                                    BorderWidth="2"
+                                    CornerRadius="10"
+                                    Margin="9"
+                                    HorizontalOptions="End"
+                                    WidthRequest="125"/>
+                            <Label Text ="BALANCE:"
+                                    TextColor="Gray"
+                                    Grid.Column="0"
+                                    Grid.Row="1"/>
+                            <Label 
+                                    x:Name="labelBalanceE"
+                                    Text ="$1819.21"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="0"
+                                    Grid.Row="2"/>
+                            <Label x:Name="moneyCl"
+                                    Text ="P&amp;L:"
+                                    TextColor="White"
+                                    Grid.Column="1"
+                                    Grid.Row="1"/>
+                            <Label
+                                    x:Name="labelPLE"
+                                    Text ="$1819.21"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Grid.Column="1"
+                                    Grid.Row="2"/>
+                        </Grid>
+                    </StackLayout>
+
+                </local:StateConditionMode>
+            
+                <local:StateConditionMode State="Error">
+                    <Grid     Grid.ColumnSpan="1"
+                               Grid.RowSpan="2">
+                        <Label
+                            Text="ERROR"
+                            TextColor="#ff1a68"
+                            FontSize="Caption"
+                            Grid.Column="0"
+                             Grid.Row="0"/>
+                        <Label
+                            Text="No Signal"
+                            TextColor="#ff1a68"
+                            FontSize="Caption"
+                            Grid.Column="0"
+                             Grid.Row="1"/>
+                    </Grid>
+                </local:StateConditionMode>
+            </local:StateContainerMode>
+        </Frame>
+    </ContentView.Content>
+</ContentView>
